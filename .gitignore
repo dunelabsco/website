@@ -1,0 +1,14 @@
+# IDE and editor files
+.claude/
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+# Dependencies
+node_modules/
+# Build files
+dist/
+build/
+# Original large images (we have optimized versions)
+assets/*-iOS-Default-*.png

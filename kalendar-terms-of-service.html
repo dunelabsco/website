@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Kalendar | Dune Labs</title>
+    <meta name="description"
+        content="Terms of Service for Kalendar mobile application. Read our terms for using the AI-powered calendar app.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" href="assets/favicon-rounded.png">
+    <link rel="apple-touch-icon" href="assets/favicon-rounded.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --black: #000000;
+            --void: #050505;
+            --charcoal: #0a0a0a;
+            --dark-gray: #111111;
+            --gray: #1a1a1a;
+            --mid-gray: #555555;
+            --light-gray: #888888;
+            --silver: #aaaaaa;
+            --off-white: #e5e5e5;
+            --white: #ffffff;
+
+            --font-display: 'Inter', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-display);
+            background-color: var(--black);
+            color: var(--off-white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Noise Texture */
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, transparent 100%);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            height: 38px;
+            width: 38px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .nav-logo span {
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            color: var(--off-white);
+        }
+
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.25rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--silver);
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-back:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+        }
+
+        .nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Main Content */
+        .terms-page {
+            min-height: 100vh;
+            padding: 8rem 4rem 6rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .terms-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* App Header */
+        .app-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .app-header-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .app-header-text h1 {
+            font-family: var(--font-mono);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 500;
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+
+        .app-header-text .update-date {
+            font-size: 0.875rem;
+            color: var(--mid-gray);
+        }
+
+        /* Language Tabs */
+        .lang-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .lang-tab {
+            padding: 0.625rem 1.25rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+            color: var(--light-gray);
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lang-tab:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .lang-tab.active {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+        }
+
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: block;
+        }
+
+        /* Content Sections */
+        .terms-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .terms-section h2 {
+            font-family: var(--font-mono);
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--white);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .terms-section p {
+            font-size: 0.9375rem;
+            color: var(--silver);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .terms-section ul {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        .terms-section ul li {
+            font-size: 0.9375rem;
+            color: var(--silver);
+            line-height: 1.8;
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .terms-section ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.7rem;
+            width: 6px;
+            height: 6px;
+            background: var(--mid-gray);
+            border-radius: 50%;
+        }
+
+        /* Contact info */
+        .contact-info {
+            background: linear-gradient(145deg, rgba(26, 26, 26, 0.6) 0%, rgba(10, 10, 10, 0.4) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin-top: 1rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0;
+        }
+
+        .contact-info a {
+            color: var(--white);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        .terms-footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: center;
+        }
+
+        .terms-footer p {
+            font-size: 0.8rem;
+            color: var(--mid-gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav {
+                padding: 1.25rem 2rem;
+            }
+
+            .terms-page {
+                padding: 7rem 2rem 4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .terms-page {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .app-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .terms-section h2 {
+                font-size: 1rem;
+            }
+
+            .lang-tabs {
+                justify-content: center;
+            }
+        }
+
+        /* Focus States for Accessibility */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--white);
+            outline-offset: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Noise Texture -->
+    <div class="noise"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="/" class="nav-logo">
+            <img src="assets/logo-cropped.jpeg" alt="Dune Labs">
+            <span>Dune Labs</span>
+        </a>
+        <a href="/" class="nav-back">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            Home
+        </a>
+    </nav>
+
+    <!-- Terms of Service Content -->
+    <main class="terms-page">
+        <div class="terms-container">
+            <!-- App Header -->
+            <header class="app-header">
+                <img src="assets/kalendar-icon.png" alt="Kalendar" class="app-header-icon">
+                <div class="app-header-text">
+                    <h1>Terms of Service</h1>
+                    <p class="update-date">Last Updated: November 2025</p>
+                </div>
+            </header>
+
+            <!-- Language Tabs -->
+            <div class="lang-tabs">
+                <button class="lang-tab active" data-lang="en">English</button>
+                <button class="lang-tab" data-lang="tr">Türkçe</button>
+            </div>
+
+            <!-- English Content -->
+            <div class="lang-content active" id="lang-en">
+                <section class="terms-section">
+                    <h2>1. Agreement</h2>
+                    <p>By using Kalendar, you agree to these terms. If you don't agree, do not use the app.</p>
+                </section>
+
+                <section class="terms-section">
+                    <h2>2. Who Can Use This App</h2>
+                    <p>You must be at least 13 years old to use this app. You are responsible for your account and all
+                        activities that occur under your account.</p>
+                </section>
+
+                <section class="terms-section">
+                    <h2>3. Acceptable Use</h2>
+                    <p>You agree not to:</p>
+                    <ul>
+                        <li>Use the app for illegal purposes</li>
+                        <li>Try to hack or bypass security</li>
+                        <li>Create fake accounts</li>
+                        <li>Harass or threaten other users</li>
+                        <li>Copy or modify the app</li>
+                        <li>Share your account with others</li>
+                        <li>Use the AI assistant to generate harmful, illegal, or inappropriate content</li>
+                    </ul>
+                </section>
+
+                <section class="terms-section">
+                    <h2>4. Your Content</h2>
+                    <p>You own your content (tasks, notes, messages). By using this app, you allow us to store and
+                        process it to provide the service. We will not use your content for any other purpose.</p>
+                    <p>When you use AI assistant features, your messages and voice recordings are processed by Google
+                        Gemini AI to provide the service. This processing is necessary for the AI assistant to function.
+                    </p>
+                </section>
+
+                <section class="terms-section">
+                    <h2>5. Subscription</h2>
+                    <ul>
+                        <li>Subscriptions auto-renew monthly or yearly</li>
+                        <li>You can cancel anytime through Apple Settings</li>
+                        <li>Cancellation takes effect at the end of your current billing cycle</li>
+                        <li>No refunds for partial periods</li>
+                        <li>Trial: 3 days free for new subscribers (one per Apple ID)</li>
+                        <li>Prices may vary by region</li>
+                    </ul>
+                </section>
+
+                <section class="terms-section">
+                    <h2>6. AI Assistant Service</h2>
+                    <p>The AI assistant feature uses Google Gemini AI to process your requests. By using this feature:
+                    </p>
+                    <ul>
+                        <li>You understand that your messages and voice recordings are sent to Google Gemini AI</li>
+                        <li>You consent to this data processing</li>
+                        <li>You acknowledge that AI responses are generated by a third-party service</li>
+                        <li>We are not responsible for the content generated by the AI</li>
+                    </ul>
+                </section>
+
+                <section class="terms-section">
+                    <h2>7. No Warranties</h2>
+                    <p>The app is provided "as is". We make no guarantees about performance or availability. We are not
+                        responsible for:</p>
+                    <ul>
+                        <li>Crashes or errors</li>
+                        <li>Loss of your data</li>
+                        <li>Unauthorized access</li>
+                        <li>Damage to your device</li>
+                        <li>AI assistant responses or accuracy</li>
+                    </ul>
+                </section>
+
+                <section class="terms-section">
+                    <h2>8. Liability Limits</h2>
+                    <p>We are not liable for indirect or consequential damages. Our total liability is limited to what
+                        you paid for the app in the last 12 months.</p>
+                </section>
+
+                <section class="terms-section">
+                    <h2>9. Data</h2>
+                    <ul>
+                        <li>We keep your data secure with industry-standard protection</li>
+                        <li>You can download or delete your data anytime</li>
+                        <li>We delete all data when you delete your account</li>
+                        <li>Data stored in secure, encrypted format</li>
+                        <li>Voice recordings are temporary and not stored after processing</li>
+                    </ul>
+                </section>
+
+                <section class="terms-section">
+                    <h2>10. Changes</h2>
+                    <p>We may update these terms. Continued use means you accept changes. We will notify you of
+                        significant changes.</p>
+                </section>
+
+                <section class="terms-section">
+                    <h2>11. Contact</h2>
+                    <div class="contact-info">
+                        <p><strong>Email:</strong> <a href="mailto:kalendar@dunelabs.co">kalendar@dunelabs.co</a></p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Turkish Content -->
+            <div class="lang-content" id="lang-tr">
+                <section class="terms-section">
+                    <h2>1. Anlaşma</h2>
+                    <p>Kalendar kullanarak bu şartları kabul edersiniz. Kabul etmiyorsanız uygulamayı kullanmayın.</p>
+                </section>
+
+                <section class="terms-section">
+                    <h2>2. Kim Kullanabilir</h2>
+                    <p>Bu uygulamayı kullanmak için en az 13 yaşında olmalısınız. Hesabınızdan ve hesabınız altında
+                        gerçekleşen tüm faaliyetlerden siz sorumlusunuz.</p>
+                </section>
+
+                <section class="terms-section">
+                    <h2>3. Kabul Edilebilir Kullanım</h2>
+                    <p>Aşağıdakileri yapmamayı kabul edersiniz:</p>
+                    <ul>
+                        <li>Uygulamayı yasadışı amaçlarla kullanmak</li>
+                        <li>Güvenliği hacklemeye veya atlatmaya çalışmak</li>
+                        <li>Sahte hesap oluşturmak</li>
+                        <li>Diğer kullanıcıları taciz etmek veya tehdit etmek</li>
+                        <li>Uygulamayı kopyalamak veya değiştirmek</li>
+                        <li>Hesabınızı başkasıyla paylaşmak</li>
+                        <li>AI asistanını zararlı, yasadışı veya uygunsuz içerik üretmek için kullanmak</li>
+                    </ul>
+                </section>
+
+                <section class="terms-section">
+                    <h2>4. Sizin İçeriğiniz</h2>
+                    <p>İçeriğiniz (görevler, notlar, mesajlar) size aittir. Uygulamayı kullanarak, hizmeti sağlamak için
+                        buna izin verirsiniz. İçeriğinizi başka hiçbir amaçla kullanmayız.</p>
+                    <p>AI asistan özelliklerini kullandığınızda, mesajlarınız ve ses kayıtlarınız hizmeti sağlamak için
+                        Google Gemini AI tarafından işlenir. Bu işleme AI asistanının çalışması için gereklidir.</p>
+                </section>
+
+                <section class="terms-section">
+                    <h2>5. Abonelik</h2>
+                    <ul>
+                        <li>Abonelikler aylık veya yıllık otomatik olarak yenilenir</li>
+                        <li>Apple Ayarları aracılığıyla istediğiniz zaman iptal edebilirsiniz</li>
+                        <li>İptal, mevcut faturalandırma döneminin sonunda yürürlüğe girer</li>
+                        <li>Kısmi dönemler için geri ödeme yapılmaz</li>
+                        <li>Deneme: Yeni aboneler için 3 gün ücretsiz (Apple ID başına bir kez)</li>
+                        <li>Fiyatlar bölgeye göre değişebilir</li>
+                    </ul>
+                </section>
+
+                <section class="terms-section">
+                    <h2>6. AI Asistan Hizmeti</h2>
+                    <p>AI asistan özelliği, isteklerinizi işlemek için Google Gemini AI kullanır. Bu özelliği
+                        kullanarak:</p>
+                    <ul>
+                        <li>Mesajlarınızın ve ses kayıtlarınızın Google Gemini AI'ye gönderildiğini anlıyorsunuz</li>
+                        <li>Bu veri işlemeyi kabul ediyorsunuz</li>
+                        <li>AI yanıtlarının üçüncü taraf bir hizmet tarafından oluşturulduğunu kabul ediyorsunuz</li>
+                        <li>AI tarafından oluşturulan içerikten sorumlu değiliz</li>
+                    </ul>
+                </section>
+
+                <section class="terms-section">
+                    <h2>7. Garanti Yok</h2>
+                    <p>Uygulama "olduğu gibi" sağlanır. Performans veya kullanılabilirlik hakkında hiçbir garanti
+                        verilmez. Aşağıdakilerden sorumlu değiliz:</p>
+                    <ul>
+                        <li>Çökmeler veya hatalar</li>
+                        <li>Verilerinizin kaybı</li>
+                        <li>Yetkisiz erişim</li>
+                        <li>Cihazınıza verilen zarar</li>
+                        <li>AI asistan yanıtları veya doğruluğu</li>
+                    </ul>
+                </section>
+
+                <section class="terms-section">
+                    <h2>8. Sorumluluk Sınırı</h2>
+                    <p>Dolaylı veya müteakip zararlardan sorumlu değiliz. Toplam sorumluluğumuz son 12 ayda uygulamaya
+                        ödediğiniz tutarla sınırlıdır.</p>
+                </section>
+
+                <section class="terms-section">
+                    <h2>9. Veri</h2>
+                    <ul>
+                        <li>Verilerinizi endüstri standardı koruma ile güvenle tutarız</li>
+                        <li>Verilerinizi istediğiniz zaman indirebilir veya silebilirsiniz</li>
+                        <li>Hesabınızı sildiğinizde tüm verileri sileriz</li>
+                        <li>Veriler güvenli, şifreli biçimde saklanır</li>
+                        <li>Ses kayıtları geçicidir ve işlemeden sonra saklanmaz</li>
+                    </ul>
+                </section>
+
+                <section class="terms-section">
+                    <h2>10. Değişiklikler</h2>
+                    <p>Bu şartları güncelleyebiliriz. Kullanmaya devam etmek değişiklikleri kabul ettiğiniz anlamına
+                        gelir. Önemli değişiklikleri size bildireceğiz.</p>
+                </section>
+
+                <section class="terms-section">
+                    <h2>11. İletişim</h2>
+                    <div class="contact-info">
+                        <p><strong>E-posta:</strong> <a href="mailto:kalendar@dunelabs.co">kalendar@dunelabs.co</a></p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Footer -->
+            <footer class="terms-footer">
+                <p>© 2025 Kalendar. All rights reserved.</p>
+            </footer>
+        </div>
+    </main>
+
+    <script>
+        // Language tab switching
+        const tabs = document.querySelectorAll('.lang-tab');
+        const contents = document.querySelectorAll('.lang-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const lang = tab.dataset.lang;
+
+                // Update active tab
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                // Update active content
+                contents.forEach(c => c.classList.remove('active'));
+                document.getElementById(`lang-${lang}`).classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

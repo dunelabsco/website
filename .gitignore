@@ -12,3 +12,4 @@ dist/
 build/
 # Original large images (we have optimized versions)
 assets/*-iOS-Default-*.png
+.DS_Store
